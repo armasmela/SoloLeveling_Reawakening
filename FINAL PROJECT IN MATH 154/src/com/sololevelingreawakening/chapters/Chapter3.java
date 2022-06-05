@@ -1,4 +1,3 @@
-/**
  * Collection of chapter classes that are playable in the course of the game.
  * @author Arjunraj Masmela.
  */
@@ -125,21 +124,24 @@ public class Chapter3 extends Chapter implements ChapterManager {
 					System.out.println("Result: " + statues[answered].getResult2());	
 					gsystem.pressEnterKey();
 					this.end();
+					break;
 				}			
 			}	
 			
-			System.out.println("You have passed the trial.");
-			gsystem.pressEnterKey();
-			System.out.println("The Supreme Being has chosen you to become the player of his game."
-					+ " You will now be reawakened!");
-			gsystem.pressEnterKey();
-			System.out.println("\n\n\nChapter 3 has ended.");
-			gsystem.pressEnterKey();
-			System.out.println("======================================================================================"
-					+ "=================");
-			System.out.println("CONGRATULATIONS! You have finished the game!");
-			gsystem.pressEnterKey();
-			chaptercontrol.setInGame(4);
+			if(answered == 5) {
+				System.out.println("You have passed the trial.");
+				gsystem.pressEnterKey();
+				System.out.println("The Supreme Being has chosen you to become the player of his game."
+						+ " You will now be reawakened!");
+				gsystem.pressEnterKey();
+				System.out.println("\n\n\nChapter 3 has ended.");
+				gsystem.pressEnterKey();
+				System.out.println("======================================================================================"
+						+ "=================");
+				System.out.println("CONGRATULATIONS! You have finished the game!");
+				gsystem.pressEnterKey();
+				chaptercontrol.setInGame(4);
+			}
 		}
 	}
 	
@@ -150,8 +152,7 @@ public class Chapter3 extends Chapter implements ChapterManager {
 			System.out.println("> You died! Game Over!");
 			System.out.println("The chapter will restart.\n");
 			gsystem.pressEnterKey();
-		    Chapter3 restart = new Chapter3(chaptercontrol, gsystem);
-		    restart.playChapter();
+		    chaptercontrol.setInGame(3);
 	}
 	
 }
