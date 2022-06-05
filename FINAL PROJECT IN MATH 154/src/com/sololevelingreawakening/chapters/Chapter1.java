@@ -1,4 +1,3 @@
-/**
  * Collection of chapter classes that are playable in the course of the game.
  * @author Arjunraj Masmela.
  */
@@ -220,11 +219,13 @@ public class Chapter1 extends Chapter  implements ChapterManager{
 				if(teleport_stone > 0) {
 					System.out.println("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
 					System.out.println("> You used a Teleportation Stone: "
-							+ "You teleported out of the Dungeon.\n");
+					        + "You are back to the beginning of Chapter 1."
+					        + "\nAll stats were the same as before the teleportation happened.");
 					teleport_stone = teleport_stone - 1;
 					item.setTeleportation_stone(teleport_stone);
-					System.out.println("The chapter will restart.\n");
+					gsystem.pressEnterKey();
 					this.playChapter();
+					break;
 				}
 			default:
 				System.out.println("\n>>Invalid Choice. Please Choose Again<<");
