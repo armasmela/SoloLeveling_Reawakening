@@ -128,6 +128,9 @@ public class Chapter2 extends Chapter  implements ChapterManager{
 					System.out.println("The chapter will restart.\n");
 					Chapter2 restart = new Chapter2(chaptercontrol, gsystem);
 					restart.playChapter();
+					/*gsystem.pressEnterKey();
+					this.chaptercontrol.setInGame(3);
+					*/
 					break;
 				case 2:
 					System.out.println("You have defeated Kasaka!");
@@ -218,12 +221,13 @@ public class Chapter2 extends Chapter  implements ChapterManager{
 				if(teleport_stone > 0) {
 				    System.out.println("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
 				    System.out.println("> You used a Teleportation Stone: "
-				        + "You teleported out of the Dungeon.\n");
+				        + "You are back to the beginning of Chapter 2."
+				        + "\nAll stats were the same as before the teleportation happened.");
 				    teleport_stone = teleport_stone - 1;
 				    item.setTeleportation_stone(teleport_stone);
-				    System.out.println("The chapter will restart.\n");
-				    Chapter2 out = new Chapter2(chaptercontrol, gsystem);
-				    out.playChapter();
+					gsystem.pressEnterKey();
+					this.playChapter();
+					break;
 				}
 				break;
 			default:
